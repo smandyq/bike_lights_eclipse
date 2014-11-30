@@ -14,6 +14,6 @@ const uint8_t sin_table[] =
 		244, 235, 225, 213, 200, 186, 171, 156, 141, 127, 113, 99, 87, 75, 65,
 		56, 48, 40, 34, 28, 24, 20, 16, 13, 11, 9, 7, 6, 5, 4 };
 
-void update_breathe();
+void update_breathe(uint8_t start, uint8_t end);
 
 #endif /* BREATHE_H_ */

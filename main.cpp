@@ -16,10 +16,11 @@ void loop()  //once per "frame" of data
 {
 	// Update the colors.
 	//byte time = millis() >> 2;
-	update_breathe();
+	update_breathe(50, 100);
+	update_stars(1,49);
 	//update_blank();
 	//update_stars();
-	//update_cop();
+	//update_cop(0, 150);
 
 	// Write the colors to the LED strip.
 	ledStrip.write(colors, LED_COUNT);

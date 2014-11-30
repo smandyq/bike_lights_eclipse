@@ -6,7 +6,7 @@
  */
 #include "../bike_lights.h"
 
-void update_breathe()
+void update_breathe(uint8_t start, uint8_t end)
 {
 	static uint8_t intensity;
 	static uint8_t breathe_tick;
@@ -15,7 +15,8 @@ void update_breathe()
 	else
 		breathe_tick = (breathe_tick + 1) & 63;
 	intensity = sin_table[breathe_tick];
-	for (rgb_color* led = colors; (led != colors_end); led++)
+	rgb_color* colors_end=colors+end;
+	for (rgb_color* led = colors+start; (led != colors_end); led++)
 	{
 		*led = (rgb_color
 				)

@@ -24,6 +24,6 @@ extern uint8_t rando;
 extern rgb_color colors[LED_COUNT];
 
 void init_stars();
-void update_stars();
+void update_stars(uint8_t start, uint8_t end);
 
 #endif /* STARS_H_ */

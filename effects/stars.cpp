@@ -15,7 +15,7 @@ star_t stars[LED_COUNT];
 star_t* stars_end = &stars[0] + LED_COUNT;
 const uint8_t* star_table_end = &star_table[0] + 64;
 
-inline uint8_t get_rando()
+inline uint8_t get_next()
 {
 	if (!rando)
 		rando = (LED_COUNT - 1);
@@ -24,16 +24,24 @@ inline uint8_t get_rando()
 
 void init_stars()
 {
-	for (star_t* star = stars; star != stars_end; star++)
+	for(uint8_t i=0; i<LED_COUNT; i++)
 	{
-		star->lut_index = (uint8_t*) star_table_end;
-		star->ticks = random(STAR_MAX_TICKS);
+		stars[i].lut_index = (uint8_t*) star_table_end;
+		stars[i].ticks = random(STAR_MAX_TICKS);
+		stars[i].pixel = &colors[i];
 	}
+//	for (star_t* star = stars; star != stars_end; star++)
+//	{
+//		star->lut_index = (uint8_t*) star_table_end;
+//		star->ticks = random(STAR_MAX_TICKS);
+//	}
 }
 
-void update_stars()
+void update_stars(uint8_t start, uint8_t end)
 {
-	for (star_t* star = stars; star != stars_end; star++)
+	star_t* stars_end = stars+end;
+	star_t* star = stars+start;
+	for (; star != stars_end; star++)
 	{
 		if (star->ticks)
 		{
@@ -55,7 +63,7 @@ void update_stars()
 			{
 				//*(star->pixel) = (rgb_color){0, 0, 0};
 				//update_led(star->pixel, (rgb_color){*0,0,0});
-				star->pixel = colors + get_rando();
+//				star->pixel = colors + get_next();
 				star->lut_index = star_table;
 				star->ticks = random(STAR_MAX_TICKS);
 			}
