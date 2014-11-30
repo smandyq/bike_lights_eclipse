@@ -1,0 +1,4 @@
+echo running avrdude: $@
+
+../ard-reset-arduino.py --caterina /dev/ttyACM0
+avrdude $@
