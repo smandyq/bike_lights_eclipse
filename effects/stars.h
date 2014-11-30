@@ -9,7 +9,6 @@
 #define STARS_H_
 #include "../bike_lights.h"
 
-#define LED_COUNT 150
 #define STAR_MAX_TICKS 75
 
 typedef struct

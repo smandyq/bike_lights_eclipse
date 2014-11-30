@@ -8,6 +8,7 @@
 #ifndef BIKE_LIGHTS_H_
 #define BIKE_LIGHTS_H_
 
+#include "config.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -16,8 +17,6 @@
 #include "effects/cop.h"
 #include "effects/breathe.h"
 #include "effects/fireball.h"
-
-#define LED_COUNT 150
 
 typedef enum
 {
