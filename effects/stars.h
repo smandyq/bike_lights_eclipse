@@ -14,18 +14,16 @@
 
 typedef struct
 {
-  rgb_color* pixel;
-  const uint8_t*   lut_index;
-  uint8_t    ticks;
+	rgb_color* pixel;
+	const uint8_t* lut_index;
+	uint8_t ticks;
 } star_t;
 
 //extern uint8_t frames;
 extern uint8_t rando;
 extern rgb_color colors[LED_COUNT];
 
-
 void init_stars();
 void update_stars();
-
 
 #endif /* STARS_H_ */
