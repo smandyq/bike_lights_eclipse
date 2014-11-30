@@ -7,21 +7,33 @@
 
 #include "../bike_lights.h"
 
+uint8_t cop_tick;
+
+void init_cop()
+{
+	cop_tick = 0;
+}
+
 void update_cop(uint8_t start, uint8_t end)
 {
-	rgb_color copcolors[] =
-	{
-	{ 255, 0, 0 },
-	{ 0, 0, 255 } };
 	static rgb_color copcolor = copcolors[0];
 	static uint8_t color_index;
-	if (!(frames & 63))
+	static uint8_t wait;
+	if(wait)
+	{
+		wait--;
+		return;
+	}
+	cop_tick++;
+	if (!(cop_tick & 63))
 	{
 		copcolor = copcolors[(color_index++) & 0x01];
+		wait = 30;
 	}
-	if (cop_table[frames & 63]) //if were about to overflow
+	else if (!(cop_tick & 9) || !(cop_tick & 8) )
 	{
-		for (rgb_color* pixel = colors; pixel != colors_end; pixel++)
+		rgb_color* colors_end = colors + end;
+		for (rgb_color* pixel = colors + start; pixel != colors_end; pixel++)
 			*(pixel) = copcolor;
 	}
 }

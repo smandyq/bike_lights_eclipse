@@ -10,9 +10,7 @@ void update_breathe(uint8_t start, uint8_t end)
 {
 	static uint8_t intensity;
 	static uint8_t breathe_tick;
-	if (frames & 15)
-		return;
-	else
+	if (!(frames & 15))
 		breathe_tick = (breathe_tick + 1) & 63;
 	intensity = sin_table[breathe_tick];
 	rgb_color* colors_end=colors+end;
