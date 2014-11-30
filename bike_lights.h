@@ -8,7 +8,14 @@
 #ifndef BIKE_LIGHTS_H_
 #define BIKE_LIGHTS_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include "PololuLedStrip.h"
+#include "effects/stars.h"
+#include "effects/cop.h"
+#include "effects/breathe.h"
+#include "effects/fireball.h"
 
 #define LED_COUNT 150
 
@@ -23,6 +30,14 @@ typedef enum
   RAINBOW_MAX
 } rainbow_t;
 
+const rgb_color rainbow[RAINBOW_MAX] = {
+  {0xff, 0x00, 0x00},
+  {0xff, 0x1f, 0x00},
+  {0xff, 0xff, 0x00},
+  {0x00, 0xff, 0x00},
+  {0x00, 0x00, 0xff},
+  {0x8f, 0x00, 0x8f}};
+
 
 //global frame counter for varying the framerate.
 extern uint8_t frames;
@@ -36,5 +51,6 @@ extern rgb_color colors[LED_COUNT];
 extern rgb_color* colors_end;
 
 void update_led(rgb_color* pixel, rgb_color* color);
+void update_blank();
 
 #endif /* BIKE_LIGHTS_H_ */

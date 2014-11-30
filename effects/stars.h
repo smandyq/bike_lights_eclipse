@@ -7,7 +7,7 @@
 
 #ifndef STARS_H_
 #define STARS_H_
-#include "PololuLedStrip.h"
+#include "../bike_lights.h"
 
 #define LED_COUNT 150
 #define STAR_MAX_TICKS 75

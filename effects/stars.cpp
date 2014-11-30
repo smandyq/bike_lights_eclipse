@@ -4,8 +4,7 @@
  *  Created on: Nov 30, 2014
  *      Author: sam
  */
-#include "stars.h"
-#include "bike_lights.h"
+#include "../bike_lights.h"
 
 const uint8_t star_table[]  = {4,16,64,255,255,232,211,192,175,159,145,132,120,110,100,91,83,75,68,62,57,52,47,43,39,35,32,29,27,24,22,20,18,17,15,14,13,11,10,10,9,8,7,7,6,5,5,4,4,4,3,3,3,3,2,2,2,2,2,1,1,1,1,1};
 star_t stars[LED_COUNT];
