@@ -45,5 +45,6 @@ extern rgb_color* colors_end;
 
 void update_led(rgb_color* pixel, rgb_color* color);
 void update_blank();
+void apply_value(rgb_color* dest, const rgb_color* color, const uint8_t value);
 
 #endif /* BIKE_LIGHTS_H_ */
