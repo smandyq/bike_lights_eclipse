@@ -9,7 +9,7 @@
 #define STARS_H_
 #include "../bike_lights.h"
 
-#define STAR_MAX_TICKS 75
+#define STAR_MAX_TICKS 150
 
 typedef struct
 {
@@ -21,6 +21,8 @@ typedef struct
 //extern uint8_t frames;
 extern uint8_t rando;
 extern rgb_color colors[LED_COUNT];
+extern const uint8_t star_table[];
+extern const uint8_t* star_table_end;
 
 void init_stars();
 void update_stars(uint8_t start, uint8_t end);
