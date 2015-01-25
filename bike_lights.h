@@ -20,7 +20,7 @@
 
 typedef enum
 {
-	RED, ORANGE, YELLOW, GREEN, BLUE, VIOLOET, RAINBOW_MAX
+	RED, ORANGE, YELLOW, GREEN, BLUE, VIOLOET, CYAN, WHITE, RAINBOW_MAX
 } rainbow_t;
 
 const rgb_color rainbow[RAINBOW_MAX] =
@@ -30,7 +30,9 @@ const rgb_color rainbow[RAINBOW_MAX] =
 { 0xff, 0xff, 0x00 },
 { 0x00, 0xff, 0x00 },
 { 0x00, 0x00, 0xff },
-{ 0x8f, 0x00, 0x8f } };
+{ 0x8f, 0x00, 0x8f },
+{ 0x00, 0xff, 0xff },
+{ 0xff, 0xff, 0xff }};
 
 //global frame counter for varying the framerate.
 extern uint8_t frames;
@@ -39,12 +41,12 @@ extern uint8_t frames;
 extern uint8_t rando;
 
 //the actual array of colors to send to the led strip
-extern rgb_color colors[LED_COUNT];
+extern rgb_color middle_colors[MIDDLE_LED_COUNT];
 //pointer to the end of the color array
-extern rgb_color* colors_end;
+extern rgb_color* middle_colors_end;
 
 void update_led(rgb_color* pixel, rgb_color* color);
-void update_blank();
+void update_blank(rgb_color* colors, uint8_t count);
 void apply_value(rgb_color* dest, const rgb_color* color, const uint8_t value);
 
 #endif /* BIKE_LIGHTS_H_ */

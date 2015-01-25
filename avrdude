@@ -1,4 +1,28 @@
+#!/bin/bash
+killall gtkterm
 echo running avrdude: $@
 
-../ard-reset-arduino.py --caterina /dev/ttyACM0
-avrdude $@
+while [ "$port" == "" ]; do
+        port=$(ls /dev/ttyACM*)
+done
+#kill $(lsof -t $port)
+
+../ard-reset-arduino.py --caterina $port
+while [ "$port" == "" ]; do
+	port=$(ls /dev/ttyACM*)
+done
+
+echo "port: $port"
+avrdude $@ -P$port
+
+port=""
+while [ "$port" == "" ]; do
+	port=$(ls /dev/ttyACM*)
+done
+
+#echo "doing exec on $port"
+#exec 3<> $port
+#echo "doing cat"
+#tail -f <&3
+#echo errorlevel: $?
+#gtkterm &

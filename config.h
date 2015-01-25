@@ -9,8 +9,9 @@
 #define CONFIG_H_
 
 
-#define LED_COUNT 150
-#define FIREBALL_COUNT 8
+#define MIDDLE_LED_COUNT 43
+#define FRONT_LED_COUNT 18
+#define FIREBALL_COUNT 3
 
 
 #endif /* CONFIG_H_ */

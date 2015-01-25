@@ -2,7 +2,9 @@
 
 bool PololuLedStripBase::interruptFriendly = false;
 // Create an ledStrip object and specify the pin it will use.
-PololuLedStrip<9> ledStrip;
+PololuLedStrip<9> middle_strip;
+PololuLedStrip<10> front_strip;
+
 
 fireball_t fireballs[FIREBALL_COUNT];
 
@@ -10,12 +12,12 @@ long timer;
 
 void setup()
 {
-	colors_end = &colors[0] + LED_COUNT;
+	middle_colors_end = &middle_colors[0] + MIDDLE_LED_COUNT;
 	rando = 0;
 	init_stars();
 	init_cop();
-	update_blank();
-	init_fireballs(fireballs, FIREBALL_COUNT, colors, colors_end);
+//	update_blank();
+	init_fireballs(fireballs, FIREBALL_COUNT, middle_colors, middle_colors+43);
 }
 
 uint32_t avg;
@@ -25,21 +27,23 @@ void loop()  //once per "frame" of data
 {
 	// Update the colors.
 	//byte time = millis() >> 2;
-	update_blank();
+	update_blank(middle_colors, MIDDLE_LED_COUNT);
 
-	update_breathe(25,50);
-	//update_stars(0,50);
-	update_stars(0, 25);
-	update_cop(125, 150);
-	timer = micros();
+//	update_breathe(138-12, 138);
+//	update_stars(138,150);
+//	update_stars(0, 25);
+//	update_cop(125, 150);
+//	timer = micros();
 	update_fireballs(fireballs, FIREBALL_COUNT);
-	timer = micros()-timer;
+//	timer = micros()-timer;
 //	Serial.print(timer);
 //	Serial.print("\r\n");
 	// Write the colors to the LED strip.
 	avg+=timer;
 
-	ledStrip.write(colors, LED_COUNT);
+	for(rgb_color* c=middle_colors; c<middle_colors+MIDDLE_LED_COUNT; c++)
+		apply_value(c, c, 255);
+	middle_strip.write(middle_colors, MIDDLE_LED_COUNT);
 
 	frames++;
 //	if(!frames)
@@ -52,5 +56,5 @@ void loop()  //once per "frame" of data
 //		avg=0;
 //	}
 
-//  delay(50);
+  delay(5);
 }

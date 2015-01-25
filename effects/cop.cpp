@@ -32,8 +32,8 @@ void update_cop(uint8_t start, uint8_t end)
 	}
 	else if (!(cop_tick & 9) || !(cop_tick & 8) )
 	{
-		rgb_color* colors_end = colors + end;
-		for (rgb_color* pixel = colors + start; pixel != colors_end; pixel++)
+		rgb_color* colors_end = middle_colors + end;
+		for (rgb_color* pixel = middle_colors + start; pixel != colors_end; pixel++)
 			*(pixel) = copcolor;
 	}
 }

@@ -10,8 +10,14 @@
 //stuff defined by extern in bike_lights.h
 uint8_t frames;
 uint8_t rando;
-rgb_color colors[LED_COUNT];
-rgb_color* colors_end;
+
+//pixel buffer for the middle of the bike
+rgb_color middle_colors[MIDDLE_LED_COUNT];
+rgb_color* middle_colors_end;
+
+//pixel buffer for front lights
+rgb_color front_colors[FRONT_LED_COUNT];
+rgb_color* front_colors_end;
 
 void update_led(rgb_color* pixel, rgb_color* color)
 {
@@ -24,9 +30,9 @@ void update_led(rgb_color* pixel, rgb_color* color)
 //	memcpy(pixel, color, sizeof(rgb_color));
 }
 
-void update_blank()
+void update_blank(rgb_color* colors, uint8_t count)
 {
-	memset(colors, 0, sizeof(rgb_color) * LED_COUNT);
+	memset(colors, 0, sizeof(rgb_color) * count);
 }
 
 static uint8_t apply_weight(uint8_t b1, uint8_t b2)
