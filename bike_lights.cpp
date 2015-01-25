@@ -19,6 +19,10 @@ rgb_color* middle_colors_end;
 rgb_color front_colors[FRONT_LED_COUNT];
 rgb_color* front_colors_end;
 
+//pixel buffer for rear lights
+rgb_color rear_colors[REAR_LED_COUNT];
+rgb_color* rear_colors_end;
+
 void update_led(rgb_color* pixel, rgb_color* color)
 {
 	if(pixel->red < color->red)

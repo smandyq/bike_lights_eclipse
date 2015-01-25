@@ -45,6 +45,16 @@ extern rgb_color middle_colors[MIDDLE_LED_COUNT];
 //pointer to the end of the color array
 extern rgb_color* middle_colors_end;
 
+//the actual array of colors to send to the led strip
+extern rgb_color front_colors[FRONT_LED_COUNT];
+//pointer to the end of the color array
+extern rgb_color* front_colors_end;
+
+//the actual array of colors to send to the led strip
+extern rgb_color rear_colors[REAR_LED_COUNT];
+//pointer to the end of the color array
+extern rgb_color* rear_colors_end;
+
 void update_led(rgb_color* pixel, rgb_color* color);
 void update_blank(rgb_color* colors, uint8_t count);
 void apply_value(rgb_color* dest, const rgb_color* color, const uint8_t value);

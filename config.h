@@ -11,6 +11,7 @@
 
 #define MIDDLE_LED_COUNT 43
 #define FRONT_LED_COUNT 18
+#define REAR_LED_COUNT 24
 #define FIREBALL_COUNT 3
 
 

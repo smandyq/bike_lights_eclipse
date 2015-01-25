@@ -68,7 +68,7 @@ void update_fireballs(fireball_t* fireballs, uint8_t count)
 				value-=fb->lut_increment;
 			}
 			if(fb->speed)
-				fb->current+=!(frames & fb->speed);
+				fb->current+=!(frames % fb->speed);
 			else
 				fb->current++;
 			if(fb->current >= (fb->end-1))
