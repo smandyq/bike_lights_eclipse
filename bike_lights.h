@@ -17,6 +17,7 @@
 #include "effects/cop.h"
 #include "effects/breathe.h"
 #include "effects/fireball.h"
+#include <EEPROM.h>
 
 typedef enum
 {
