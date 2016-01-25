@@ -11,11 +11,11 @@
 #include "../bike_lights.h"
 
 #define FIREBALL_MAX_FREQ 50  //max amount of time to wait to fire a new fireball
-#define FIREBALL_SPEED_DIVISOR_MIN 2 //maximum power of two to make the speed divisor
+#define FIREBALL_SPEED_DIVISOR_MIN 3 //maximum power of two to make the speed divisor
 #define FIREBALL_SPEED_DIVISOR_MAX 20 //maximum power of two to make the speed divisor
 #define FIREBALL_MAX_WAIT 63
 #define FIREBALL_MAX_LUT_INC 6  //maximum amount of shortening of the tail of the fireball
-#define FIREBALL_MIN_LUT_INC 2  //minimum amount of shortening of the tail of the fireball
+#define FIREBALL_MIN_LUT_INC 3  //minimum amount of shortening of the tail of the fireball
 #define FIREBALL_MAX_LIFETIME 3000
 #define FIREBALL_MIN_LIFETIME 2000
 
